@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="myjs2.js"></script>
+    <script src="myjs3.js"></script>
+    <script>reloadDiv()</script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html">Главная</a>
+        <a href="task1.html">Задание1</a>
+        <a href="task2.html">Задание2</a>
+    </header>
+    <div class="content">
+        <div class="task">
+            <b>Продолжить работу с интернет-магазином:<br></b>
+              <table>
+                  <tr>
+                      <td>а.</td>
+                      <td>В прошлом домашнем задании вы реализовали корзину на базе массивов. Какими объектами можно
+                          заменить их элементы?</td>
+                  </tr>
+                  <tr>
+                      <td>b.</td>
+                      <td>Реализуйте такие объекты.</td>
+                  </tr>
+                  <tr>
+                      <td>c.</td>
+                      <td>Перенести функционал подсчета корзины на объектно-ориентированную базу.</td>
+                  </tr>
+              </table>
+        </div>
+        <div class="Solution">
+            Выберете товары:<br>
+            <a href="#" onclick="addBasketToCart(boot);return false">Ботинки</a><br>
+            <a href="#" onclick="addBasketToCart(shirt);return false">Футболка</a><br>
+            <a href="#" onclick="addBasketToCart(trousers);return false">Штаны</a><br>
+        </div>
+        <div id="Sol2" class="Solution">
+
+        </div>
+    </div>
+</body>
+
+</html>
