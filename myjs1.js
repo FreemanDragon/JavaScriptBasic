@@ -11,7 +11,7 @@ function numberToObject(number) {
     }
 
     var hundreds = number / 100 - ((number / 100) % 1);
-    var tens = (number - hundreds*100)/ 10 - (((number - hundreds*100) / 10) % 1);
+    var tens = (number - hundreds * 100)/ 10 - (((number - hundreds * 100) / 10) % 1);
     var units = number - hundreds*100 -tens*10;
 
     return {
