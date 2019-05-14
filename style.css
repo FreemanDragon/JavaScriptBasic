@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+.header {
+  width: 700px;
+  padding-bottom: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin: 0 auto; }
+  .header a {
+    font-size: 1.5em;
+    text-decoration: none; }
+
+.content {
+  width: 700px;
+  margin: 0 auto;
+  font-size: 1.5em; }
+
+.task {
+  padding-bottom: 30px; }
+
+.main {
+  display: flex;
+  flex-direction: column; }
+  .main a {
+    margin: 10px; }
+
+#Sol2.reloaded {
+  opacity: 1; }
+
+table td {
+  vertical-align: top;
+  padding: 5px; }
+
+/*# sourceMappingURL=style.css.map */
