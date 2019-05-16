@@ -4,7 +4,7 @@ function countBasketPrice(cart) {
     var n = 0;
     while (i < cart.length) {
         if (cart[i].quantity == 0) {
-            cart.splice(i,1); //Удаляем товар из корзины если новое количество равно 0
+            cart.splice(i, 1); //Удаляем товар из корзины если новое количество равно 0
             break;
         }
         price += cart[i].price * cart[i].quantity;
