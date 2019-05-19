@@ -35,7 +35,7 @@ function getCart() {
         var $price = document.createElement('p');
         $price.textContent = cart[i].price;
         var $quantity = document.createElement('input');
-        $quantity.textContent = cart[i].quantity;
+        $quantity.value = cart[i].quantity;
         var $priceAll = document.createElement('p');
         $priceAll.textContent =(cart[i].price * cart[i].quantity);
         var $delete = document.createElement('button');
