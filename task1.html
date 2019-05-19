@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="myjs1.js"></script>
+    <script src="myjs2.js"></script>
+    <script src="myjs3.js"></script>
+    <script src="myjs4.js"></script>
 </head>
 
 <body>
@@ -16,15 +18,25 @@
     </header>
     <div class="content">
         <div class="task">
-            <b>Создать функцию, генерирующую шахматную доску. Можно использовать любые html-теги.
-                Доска должна быть верно разлинована на черные и белые ячейки.
-                Строки должны нумероваться числами от 1 до 8, столбцы — латинскими буквами A, B, C, D, E, F, G, H.
-            </b>
+            <b>Продолжаем реализовывать модуль корзины:<br></b>
+              <table class="task__table">
+                  <tr>
+                      <td>а.</td>
+                      <td>Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы;</td>
+                  </tr>
+                  <tr>
+                      <td>b.</td>
+                      <td>Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида.</td>
+                  </tr>
+              </table>
         </div>
-        <div id="Sol1" class="Solution" onclick="solution()">
-            Нажмите здесь для просмотра решения
+        <div id="product" class="solution">
+            <p>Выберете товары:<br></p>
+        </div>
+        <div id="cart" class="solution">
+
         </div>
     </div>
-
 </body>
+
 </html>
