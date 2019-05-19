@@ -1,56 +1,91 @@
-function countBasketPrice(cart) {
+function getProduct() {
+    var $product = document.getElementById('product');
+    $product.textContent = ''; //Очищаем предыдущее содержимое
+    var $header = document.createElement('p');
+    $header.textContent = 'Выберете товары';
+    $product.appendChild($header);
+    for (i = 0; i < product.length; i++) {
+        var $goods = document.createElement('div');
+        $goods.dataset.number = i; //Вешаем на див номер товара в массиве product, чтобы понять на какой товар нажали
+        $goods.classList.add('goods');
+        var $img = document.createElement('img');
+        var $name = document.createElement('p');
+        $name.textContent = product[i].name;
+        var $price = document.createElement('p');
+        $price.textContent = product[i].price;
+        var $button = document.createElement('button');
+        $button.textContent = buyOrIs(product[i]);
+        $goods.appendChild($name);
+        $goods.appendChild($price);
+        $goods.appendChild($button);
+        $product.appendChild($goods);
+    }
+}
+
+function getCart() {
+    var $cart = document.getElementById('cart');
+    $cart.textContent = '';
+    for (i = 0; i < cart.length; i++) {
+        var $goods = document.createElement('div');
+        $goods.dataset.number = i; //Вешаем на див номер товара в массиве cart
+        $goods.classList.add('goods');
+        var $img = document.createElement('img');
+        var $name = document.createElement('p');
+        $name.textContent = cart[i].name;
+        var $price = document.createElement('p');
+        $price.textContent = cart[i].price;
+        var $quantity = document.createElement('input');
+        $quantity.textContent = cart[i].quantity;
+        var $priceAll = document.createElement('p');
+        $priceAll.textContent =(cart[i].price * cart[i].quantity);
+        var $delete = document.createElement('button');
+        $delete.textContent = 'Удалить';
+        $goods.appendChild($name);
+        $goods.appendChild($price);
+        $goods.appendChild($quantity);
+        $goods.appendChild($priceAll);
+        $goods.appendChild($delete);
+        $cart.appendChild($goods);
+    }
+    var $basketPrice = document.createElement('p');
+    $basketPrice.textContent = countBasketPrice();
+    $cart.appendChild($basketPrice);
+}
+
+function buyOrIs(goods) {
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].name == goods.name)
+            return 'Уже есть в корзине';
+    }
+    return 'Купить'
+}
+
+function countBasketPrice() {
     var price = 0;
-    var i = 0 ;
-    var n = 0;
-    while (i < cart.length) {
-        if (cart[i].quantity == 0) {
-            cart.splice(i, 1); //Удаляем товар из корзины если новое количество равно 0
-            break;
-        }
+    var quantityAllCart = 0;
+    for (var i = 0; i < cart.length; i++) {
         price += cart[i].price * cart[i].quantity;
-        n += cart[i].quantity// Считаем количество товаров в корзине
-        i++;
+        quantityAllCart += cart[i].quantity; // Считаем общее количество товаров в корзине
     }
     if (cart.length == 0) return 'Корзина пуста';
-    return 'В корзине: ' + n + ' товар' + correctTermination(n) + ' на сумму ' + price + ' руб.';
+    return 'В корзине: ' + quantityAllCart + ' товар' + correctTermination(quantityAllCart) + ' на сумму ' + price + ' руб.';
 }
 
-function correctTermination(n) {
-    n += ''; //Переводим количество товаров в строку
+function correctTermination(n) { // В зависимости от количества ставим правильное окончание в слове товар
+    n += ''; // Переводим количество товаров в строку
     n = +n[n.length - 1]; // Узнаем последнюю цифру
-    if (n == 1) return '';
-    if (1 < n && n < 5) return 'а';
-    return 'ов';
+    if (n == 1) return ''; // Если 1 - то "товар"
+    if (1 < n && n < 5) return 'а'; // Если 2,3 или 4 - то "товара"
+    return 'ов'; // Если 5,6,7,8,9 или 0 - то "товаров"
 }
 
-function reloadDiv() {
-    window.setInterval('refreshDiv()', 500);
-
-}
-
-function refreshDiv() {
-    var el = document.getElementById('Sol2');
-    el.textContent = countBasketPrice(cart);
-}
-
-function addBasketToCart(basket) {
-    var i = 0;
-    while (i < cart.length) {
-        if (cart[i].name == basket.name) {
-            alert('У Вас в корзине уже есть такой товар\nв количестве ' + basket.quantity + '\nВведите новое количство');
-            cart.splice(i,1);
-            break;
+function addGoodsToCart(goods) {
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].name == goods.name) {
+            alert('У Вас в корзине уже есть такой товар');
+            return; //Не добавлять товар в корзину
         }
-        i++;
     }
-    basket.quantity = correctNumber('Введите количество выбранного вами товара :' + basket.name);
-    cart.push(basket);
-}
-
-function correctNumber(displayMessage) {
-    var correctNumber = +prompt(displayMessage);
-    while (1) {
-        if (correctNumber >= 0 && correctNumber % 1 == 0) return correctNumber;
-        else correctNumber = +prompt('Вы ввели некорректное число. \nВведите целое число больше 0\n' + displayMessage)
-    }
+    goods.quantity = 1;
+    cart.push(goods);
 }
