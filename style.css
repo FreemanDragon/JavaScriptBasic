@@ -54,5 +54,21 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .goods div {
+    display: flex;
+    align-items: center; }
+  .goods input {
+    width: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    font-size: inherit;
+    appearance: none; }
+    .goods input::-webkit-outer-spin-button, .goods input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+  .goods button {
+    font-size: inherit;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
