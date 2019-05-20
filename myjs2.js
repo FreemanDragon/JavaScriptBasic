@@ -18,4 +18,5 @@ var trousers = {
     quantity: 0,
     };
 
+var focusInput;
 var product = [boot, shirt, trousers,];

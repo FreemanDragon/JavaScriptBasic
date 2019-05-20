@@ -24,18 +24,14 @@ a
 .task
   padding-bottom: 30px
 
-.Solution
-  display: flex
-  justify-content: center
+.solution
+  margin: 30px
 
 .main
   display: flex
   flex-direction: column
   & a
     margin: 10px
-
-#Sol3.reloaded
-  opacity: 1
 
 .task__table td
   vertical-align: top
@@ -44,13 +40,34 @@ a
 .chessboard
   text-align: center
 
-.chessboard__cell
-  height: 70px
-  width: 70px
-  border: 1px solid black
+  &__cell
+    height: 70px
+    width: 70px
+    border: 1px solid black
 
 .black
   background-color: black
 
 .white
   background-color: white
+
+.goods
+  display: flex
+  justify-content: space-between
+  align-items: center
+  & div
+    display: flex
+    align-items: center
+  & input
+    width: 50px
+    padding-left: 5px
+    padding-right: 5px
+    text-align: center
+    font-size: inherit
+    appearance: none
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+  & button
+    font-size: inherit
+    text-align: center
