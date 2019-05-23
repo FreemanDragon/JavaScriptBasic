@@ -22,9 +22,14 @@ function getProduct() {
     }
 }
 
-function getCart() {
-    var $cart = document.getElementById('cart');
-    $cart.textContent = '';
+function getPrice() {
+    var $price = document.getElementById('price');
+    $price.textContent = countBasketPrice();
+}
+
+function getStructure() {
+    var $structure = document.getElementById('structure');
+    $structure.textContent = '';
     for (i = 0; i < cart.length; i++) {
         var $goods = document.createElement('div');
         $goods.dataset.number = i; //Вешаем на див номер товара в массиве cart
@@ -56,12 +61,14 @@ function getCart() {
         $goods.appendChild($quantityDiv);
         $goods.appendChild($priceAll);
         $goods.appendChild($delete);
-        $cart.appendChild($goods);
+        $structure.appendChild($goods);
         if (i == focusInput) $quantity.focus();
     }
-    var $basketPrice = document.createElement('p');
-    $basketPrice.textContent = countBasketPrice();
-    $cart.appendChild($basketPrice);
+    var $next = document.createElement('button');
+    $next.textContent = 'Далее';
+    $next.classList.add('tab__button');
+    $next.dataset.id = '2';
+    $structure.appendChild($next);
 }
 
 function buyOrIs(goods) {
