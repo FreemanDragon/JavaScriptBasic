@@ -17,6 +17,16 @@ function handleButtonClick(event) {
         cart[event.target.parentNode.parentNode.dataset.number].quantity--;
         init();
     }
+    if (event.target.classList.contains('tab__button')) {
+        var $according = document.getElementsByClassName('according');
+        for (var i = 0; i < $according.length; i++) {
+            if ($according[i].classList.contains('according')) {
+                if (event.target.dataset.id == $according[i].dataset.id)
+                    $according[i].classList.toggle('hidden');
+                else $according[i].classList.add('hidden');
+            }
+        }
+    }
 }
 
 function handleInputChange(event) {
@@ -34,7 +44,8 @@ function handleInputChange(event) {
 
 function init() {
     getProduct();
-    getCart();
+    getPrice();
+    getStructure();
     var $product = document.querySelector('#product');
     $product.addEventListener('click', handleButtonClick);
     var $cart = document.querySelector('#cart');
