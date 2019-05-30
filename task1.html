@@ -18,23 +18,34 @@
     </header>
     <div class="content">
         <div class="task">
-            <b>Продолжаем реализовывать модуль корзины:<br></b>
+            <b>Реализовать страницу корзины:<br></b>
               <table class="task__table">
                   <tr>
                       <td>а.</td>
-                      <td>Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы;</td>
+                      <td>Добавить возможность не только смотреть состав корзины, но и редактировать его, обновляя общую стоимость или выводя сообщение «Корзина пуста».</td>
                   </tr>
-                  <tr>
-                      <td>b.</td>
-                      <td>Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида.</td>
-                  </tr>
+                 
               </table>
         </div>
         <div id="product" class="solution">
 
         </div>
         <div id="cart" class="solution">
-
+            <div id="price"></div>
+            <div class="tab">
+                <button class="tab__button" data-id="1">Состав корзины</button>
+                <button class="tab__button" data-id="2">Адрес доставки</button>
+                <button class="tab__button" data-id="3">Комментарий</button>
+            </div>
+            <div id="structure" class="according hidden" data-id="1"></div>
+            <div class="according hidden" data-id="2">Введите здесь свой адрес для доставки
+                <input type="text">
+                <button class="tab__button" data-id="3">Далее</button>
+            </div>
+            <div class="according hidden" data-id="3">
+                <input type="text">
+                <button class="tab__button" data-id="1">Далее</button>
+            </div>
         </div>
     </div>
 </body>
